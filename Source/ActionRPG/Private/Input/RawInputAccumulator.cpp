@@ -1,5 +1,13 @@
 #include "Input/RawInputAccumulator.h"
 
+void FRawInputAccumulator::SetButtonState(EActionInputButton key, bool bPressed)
+{
+}
+
+void FRawInputAccumulator::SetInputAxis(const FVector2D& axis)
+{
+}
+
 FActionInputFrame FRawInputAccumulator::ConsumeFrame(int32 FrameId)
 {
 	FActionInputFrame Frame;

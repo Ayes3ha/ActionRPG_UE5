@@ -1,5 +1,7 @@
 #pragma once
+
 #include "GameplayTagContainer.h"
+#include "ActionInputEvent.generated.h"
 
 enum class EActionInputEventType : uint8
 {
