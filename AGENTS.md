@@ -1,0 +1,3 @@
+本项目为UE5的ActionRPG官方示例，大量用到了GAS实现ARPG游戏逻辑。
+
+有任何关于UE5的需求请先查阅skill库中关于ue5的skill
