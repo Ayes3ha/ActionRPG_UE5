@@ -31,7 +31,20 @@ void UActionComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	
+	m_actionTimer += DeltaTime;
+	while (m_actionTimer >= m_actionInterval)
+	{
+		m_actionTimer -= m_actionInterval;
+		
+		const int32 curFrameId = m_inputHisotry.GetNextFrameId();
+		
+		FActionInputFrame frame = m_rawInput.ConsumeFrame(curFrameId);
+		
+		m_inputHisotry.PushFrame(MoveTemp(frame));
+		m_preInput.NextStep(curFrameId);
+	}
+
 }
 
 void UActionComponent::SubmitButtonInput(EActionInputButton button, bool bPressed)

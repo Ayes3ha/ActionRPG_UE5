@@ -11,7 +11,9 @@ public:
 
 private:
 	uint64 HeldMask = 0;
+	// 记录哪些按钮是本帧按下的
 	uint64 LatchedPressedMask = 0;
+	// 记录哪些按钮是本帧松开的
 	uint64 LatchedReleasedMask = 0;
 
 	FVector2D LatestMoveAxis = FVector2D::ZeroVector;

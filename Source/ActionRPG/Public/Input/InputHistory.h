@@ -8,11 +8,17 @@ public:
 	explicit FInputHistory(int32 InCapacityFrames = 10);
 	void Reset();
 	void PushFrame(FActionInputFrame&& frame);
+	int32 GetNumFrames() const;
+	int32 GetNextFrameId() const;
 
-	const FActionInputFrame* GetFrame(int32 ActionFrame) const;
+	const FActionInputFrame* FindFrameById(int32 FrameId) const;
+	FActionInputFrame& GetWriteSlot();
+
 private:
-	TArray<FActionInputFrame> m_inputFrames;
-	int32 m_capacityFrames = 10;
-	int32 m_writeIndex = 0;
-	int32 m_numFrames = 0;
+	TArray<FActionInputFrame> InputFrames;
+	int32 CapacityFrames = 10;
+	int32 WriteIndex = 0;
+	int32 NumFrames = 0;
+
+	int32 CurFrameId = 0;
 };

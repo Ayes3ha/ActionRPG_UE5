@@ -29,5 +29,7 @@ struct FActionInputFrame
 	uint64 LastInputSequence = 0;
 
 public:
-	bool WasPressed(EActionInputButton button);
+	bool WasPressed(EActionInputButton Button);
+	void CopyFrom(FActionInputFrame& InputFrame);
+	void Reset();
 };

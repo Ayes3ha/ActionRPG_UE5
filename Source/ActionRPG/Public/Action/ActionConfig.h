@@ -1,6 +1,6 @@
 #pragma once
 
-static class ActionConfig
+class ActionConfig
 {
 public:
 	const int ActionFrameRate = 60;

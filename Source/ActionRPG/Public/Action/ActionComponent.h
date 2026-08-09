@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ActionConfig.h"
 #include "Components/ActorComponent.h"
 #include "Input/ActionInputTypes.h"
 #include "Input/PreInputBuffer.h"
@@ -35,6 +36,12 @@ public:
 	void SubmitDirectionInput(FVector2D inputAxis);
 
 private:
+	// 动作帧率
+	int32 m_actionRate = 60;
+	float m_actionInterval = (float)1 / m_actionRate;
+
+	float m_actionTimer = 0;
+	
 	FRawInputAccumulator m_rawInput;
 	FInputHistory m_inputHisotry;
 	FPreInputBuffer m_preInput;
